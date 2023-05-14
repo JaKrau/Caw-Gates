@@ -1,4 +1,70 @@
-// Assignment code here
+// all of our password options are stored up here as well as two empty variables we'll reference/fill down the line
+var passwordLength;
+var password = "";
+// the password variable is empty until line 59
+var number = "1234567890";
+var lowerCase = "abcdefghijklmnopqrstuvwxyz";
+var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var specialCharacters = "!#$%&()*+,-./:;<=>?@][\^_{|}~";
+var passwordChoices = "";
+// passwordChoices will hold each of the above strings that the user includes as options for their password
+
+function generatePassword() {
+
+  while (true) {
+    passwordLength = prompt("How long would you like your password to be? (8-128 characters available)");
+    if (passwordLength === null) {
+      return;
+    } else if (passwordLength < 8 || passwordLength > 128) {
+      alert("The value entered is outside the scope of 8 to 128 characters. Please try again.");
+    } else {
+      alert("Your password will be " + passwordLength + " characters long.");
+// user input determines the value for our var passwordLength here, this alert also confirms (for the user) that their desired password length has been accepted
+      console.log(passwordLength);
+      break;
+    };
+  }
+
+  alert("Next, please select which character types you would like present in your password.");
+
+  var selection = confirm("Would you like to include numbers in your password?");
+  if (selection) {
+    passwordChoices = (passwordChoices + number);
+// ran into an issue where only the var number was displaying after making all password choices, so I started logging passwordChoices after each selection to see if the issue was within that variable or the var password 
+    console.log(passwordChoices);
+  } 
+
+  var selection = confirm("Would you like to include lowercase letters in your password?");
+  if (selection) {
+    passwordChoices = (passwordChoices + lowerCase);
+    console.log(passwordChoices);
+  }
+
+  var selection = confirm("Would you like to include uppercase letters in your password?");
+  if (selection) {
+    passwordChoices = (passwordChoices + upperCase);
+    console.log(passwordChoices);
+  }
+
+  var selection = confirm("Would you like to include special characters in your password?");
+  if (selection) {
+    passwordChoices = (passwordChoices + specialCharacters);
+    console.log(passwordChoices);
+  }
+
+  for (var i = 0; i < passwordLength; i++) {
+    var passwordNow = passwordChoices[Math.floor(Math.random() * passwordChoices.length)];
+    console.log(passwordNow);
+     
+    password += passwordNow
+// concatenates the passwordNow variable which contains our randomly selected characters with the empty password variable we created 
+// wrote it out as passwordNow += password at first, had to spend a non-negligible amount of time to realize that was the root cause of breakage
+  }
+  
+  console.log(password);
+  return password;
+
+};
 
 
 // Get references to the #generate element
