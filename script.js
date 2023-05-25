@@ -1,4 +1,4 @@
-// all of our password options are stored up here as well as two empty variables we'll reference/fill down the line
+// all of our password options are stored up here, as well as, two empty variables we'll reference/fill down the line
 var passwordLength;
 var password = "";
 // the password variable is empty until line 59
@@ -53,14 +53,13 @@ function generatePassword() {
   }
 
   for (var i = 0; i < passwordLength; i++) {
-    var passwordNow = passwordChoices[Math.floor(Math.random() * passwordChoices.length)];
-    console.log(passwordNow);
+    var passwordResult = passwordChoices[Math.floor(Math.random() * passwordChoices.length)];
+    console.log(passwordResult);
      
-    password += passwordNow
-// concatenates the passwordNow variable which contains our randomly selected characters with the empty password variable we created 
-// wrote it out as passwordNow += password at first, had to spend a non-negligible amount of time to realize that was the root cause of breakage
+    password += passwordResult
+// concatenates the passwordResult variable (containing our randomly selected characters) with the empty password variable on line 3 
   }
-  
+
   console.log(password);
   return password;
 
