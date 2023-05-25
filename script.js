@@ -1,13 +1,13 @@
-// all of our password options are stored up here, as well as, two empty variables we'll reference/fill down the line
+// All of our password options are stored up here, as well as, two empty variables we'll reference/fill down the line
 var passwordLength;
 var password = "";
-// the password variable is empty until line 59
+// The password variable is empty until line 59
 var number = "1234567890";
 var lowerCase = "abcdefghijklmnopqrstuvwxyz";
 var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var specialCharacters = "!#$%&()*+,-./:;<=>?@][\^_{|}~";
 var passwordChoices = "";
-// passwordChoices will hold each of the above strings that the user includes as options for their password
+// PasswordChoices will hold each of the above strings that the user includes as options for their password
 
 function generatePassword() {
 
@@ -19,7 +19,7 @@ function generatePassword() {
       alert("The value entered is outside the scope of 8 to 128 characters. Please try again.");
     } else {
       alert("Your password will be " + passwordLength + " characters long.");
-// user input determines the value for our var passwordLength here, this alert also confirms (for the user) that their desired password length has been accepted
+// User input determines the value for our var passwordLength here, this alert also confirms (for the user) that their desired password length has been accepted
       console.log(passwordLength);
       break;
     };
@@ -30,7 +30,7 @@ function generatePassword() {
   var selection1 = confirm("Would you like to include numbers in your password?");
   if (selection1) {
     passwordChoices = (passwordChoices + number);
-// ran into an issue where only the var number was displaying after making all password choices, so I started logging passwordChoices after each selection to see if the issue was within that variable or the var password 
+// Ran into an issue where only the var number was displaying after making all password choices, so I started logging passwordChoices after each selection to see if the issue was within that variable or the var password 
     console.log(passwordChoices);
   } 
 
@@ -57,7 +57,7 @@ function generatePassword() {
     console.log(passwordResult);
      
     password += passwordResult
-// concatenates the passwordResult variable (containing our randomly selected characters) with the empty password variable on line 3 
+// Concatenates the passwordResult variable (containing our randomly selected characters) with the empty password variable on line 3 
   }
 
   console.log(password);
@@ -76,7 +76,17 @@ function writePassword() {
 
   passwordText.value = password;
 
-}
+  
 
+  
+} 
+
+// Without this function I noticed making more than one password would generate concatenated results and the the user's passwordLength choice was getting overwritten
+function restoreValues() { 
+  password = "";
+  console.log(password);
+  passwordChoices = "";
+  console.log(passwordChoices);
+}
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
