@@ -27,27 +27,27 @@ function generatePassword() {
 
   alert("Next, please select which character types you would like present in your password.");
 
-  var selection = confirm("Would you like to include numbers in your password?");
-  if (selection) {
+  var selection1 = confirm("Would you like to include numbers in your password?");
+  if (selection1) {
     passwordChoices = (passwordChoices + number);
 // ran into an issue where only the var number was displaying after making all password choices, so I started logging passwordChoices after each selection to see if the issue was within that variable or the var password 
     console.log(passwordChoices);
   } 
 
-  var selection = confirm("Would you like to include lowercase letters in your password?");
-  if (selection) {
+  var selection2 = confirm("Would you like to include lowercase letters in your password?");
+  if (selection2) {
     passwordChoices = (passwordChoices + lowerCase);
     console.log(passwordChoices);
   }
 
-  var selection = confirm("Would you like to include uppercase letters in your password?");
-  if (selection) {
+  var selection3 = confirm("Would you like to include uppercase letters in your password?");
+  if (selection3) {
     passwordChoices = (passwordChoices + upperCase);
     console.log(passwordChoices);
   }
 
-  var selection = confirm("Would you like to include special characters in your password?");
-  if (selection) {
+  var selection4 = confirm("Would you like to include special characters in your password?");
+  if (selection4) {
     passwordChoices = (passwordChoices + specialCharacters);
     console.log(passwordChoices);
   }
